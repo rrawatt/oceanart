@@ -1,6 +1,6 @@
 # OceanArt
 
-This is a simple Python-based simulation game built using the `pygame` library. The game renders a dynamic environment featuring a day-night cycle, beach, clouds, sun, moon, and stars. It demonstrates the interaction between different elements of nature, such as the movement of the sun, moon, and clouds, alongside a constantly shifting sky.
+This is a simple Python-based simulation art built using the `pygame` library. The game renders a dynamic environment featuring a day-night cycle, beach, clouds, sun, moon, and stars. It demonstrates the interaction between different elements of nature, such as the movement of the sun, moon, and clouds, alongside a constantly shifting sky.
 
 ## Requirements
 
