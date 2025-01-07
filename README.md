@@ -13,7 +13,7 @@ Before running the simulation, make sure you have the following dependencies ins
 - **beach.py**: Custom module to render and animate the beach.
 - **island.py**: Custom module to render the island background.
 
-![Alt text](/snapshot.png)
+![Snapshot](/snapshot.png)
 
 You can install `pygame` by running the following:
 
