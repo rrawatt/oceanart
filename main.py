@@ -38,7 +38,7 @@ pygame.display.set_caption("Ocean Grid")
 def main():
     run = True
     clock = pygame.time.Clock()
-    fps = 7.5
+    fps = 60
 
     ang=180
 
@@ -63,14 +63,17 @@ def main():
         rad=random.choice(list(r1)+list(r2))
         angl=random.uniform(0,360) 
         star.append([x,rad,angl])
+    
+    updateval=int(fps/7.5)
 
     time=0
     while run:
-        if time!=47:
-            WIN.fill(cycle[time])
+
+        if time!=47*updateval:
+            WIN.fill(cycle[time//updateval])
             time+=1
         else:
-            WIN.fill(cycle[time])
+            WIN.fill(cycle[time//updateval])
             time=0
 
         for event in pygame.event.get():
@@ -84,7 +87,7 @@ def main():
             sins = math.sin(math.pi / 360 * i[2])
             i[0].update_center(500 + i[1] * coss, 400 + i[1] * sins)
             i[0].draw_obj()
-            i[2] += 5
+            i[2] += 5/updateval
     
         cossm=math.cos(3.14/180*ang)
         sinsm=math.sin(3.14/180*ang)
@@ -93,13 +96,13 @@ def main():
         moon.update_center(500-250*cossm,400-200*sinsm)
         moon.draw_obj()
 
-        ang+=7.5
+        ang+=(7.5/updateval)
 
         for i in range(len(cloud)):
             cloud[i].draw_obj()
             if cloud[i].x>=1000:
                 cloud[i].update_loc(random.randint(-100,-70), random.randint(0,300))
-            cloud[i].update_loc(cloud[i].x + random.randint(5,15), cloud[i].y)
+            cloud[i].update_loc(cloud[i].x + random.randint(5,15)/updateval, cloud[i].y)
         
         island_=island.Island(WIN)
         island_.draw(-ang/10)
@@ -107,9 +110,9 @@ def main():
         beachside.draw(beachsidesand)
 
         if beachsidesandstate==0:
-            beachsidesand+=2.5
+            beachsidesand+=2.5/updateval
         else:
-            beachsidesand-=2.5
+            beachsidesand-=2.5/updateval
         if beachsidesand > 25:
             beachsidesandstate=1
         elif beachsidesand<-25:
